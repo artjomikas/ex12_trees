@@ -36,8 +36,14 @@ def test_leaf_to_string():
 def test_addition_with_leaves_to_string():
     """."""
     tree = Add(Leaf(5), Leaf(6))
-    assert tree.apply() == 11
     assert tree.__str__() == "5 + 6"
+
+
+@pytest.mark.timeout(1.0)
+def test_addition_with_leaves_to_string_deeper():
+    """."""
+    tree = Add(Add(Add(Add(Leaf(6), Leaf(6)), Leaf(6)), Leaf(6)), Leaf(6))
+    assert tree.__str__() == "6 + 6 + 6 + 6 + 6"
 
 
 @pytest.mark.timeout(1.0)

@@ -8,13 +8,13 @@ class TreeNode(metaclass=ABCMeta):
 
     def __init__(self, *args):
         """:param make use of *args and store them in a way that it is easy to use them."""
-        pass
+        self.__value = args  # tuple of values
 
     @property
     @abstractmethod
     def default_operator(self):
         """abstract method which should be overridden to return the default_operator object."""
-        return lambda *x: x
+        pass
 
     @abstractmethod
     def apply(self):
@@ -32,10 +32,6 @@ class TreeNode(metaclass=ABCMeta):
     def __ne__(self, other):
         """:return True when 2 object trees have a different shape and/or values."""
         return False
-
-    def __str__(self):
-        """:return the mathematical string representation of the tree with least amount of parenthesis."""
-        return "5 + 6"
 
     @property
     @abstractmethod

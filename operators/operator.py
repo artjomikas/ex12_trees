@@ -9,11 +9,17 @@ class Operator(TreeNode):
 
     def __init__(self, *args):
         """Store the given arguments somehow."""
-        super().__init__(*args)
+        super().__init__(*args[0])
+        self.__value = args[0]  # usually tuple of 2 elements
 
     def apply(self):
         """Make use of the *args to compute the value of the given subtree. Recursion is your friend."""
-        return -1
+        params = [x.apply() for x in self.__value]
+        types = tuple(type(x) for x in params)
+        if self.actions.get(types):
+            return self.actions[types](*params)
+        else:
+            return self.default_operator(*params)
 
     @property
     def associativity(self):
@@ -36,3 +42,9 @@ class Operator(TreeNode):
         aforementioned parameters as inputs and computes a value with them.
         """
         pass
+
+    def __str__(self):
+        """:return the mathematical string representation of the tree with least amount of parenthesis."""
+        operator_as_string = f" {self.default_operator.__str__()} "
+        string_values = [x.__str__() for x in self.__value]
+        return operator_as_string.join(string_values)

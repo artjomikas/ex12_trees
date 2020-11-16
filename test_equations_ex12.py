@@ -20,6 +20,12 @@ def test_addition_adds_when_given_leaves_with_numbers():
 
 
 @pytest.mark.timeout(1.0)
+def test_addition_adds_when_given_leaves_with_numbers_deeper():
+    """."""
+    assert Add(Add(Add(Add(Leaf(6), Leaf(6)), Leaf(6)), Leaf(6)), Leaf(6)).apply() == 30
+
+
+@pytest.mark.timeout(1.0)
 def test_subtract_subtracts_when_given_leaves_with_numbers():
     """."""
     assert Sub(Leaf(5), Leaf(6)).apply() == -1

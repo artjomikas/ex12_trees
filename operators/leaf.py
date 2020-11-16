@@ -30,3 +30,7 @@ class Leaf(TreeNode):
     def apply(self):
         """:return the value."""
         return self.__value
+
+    def __str__(self):
+        """:return the mathematical string representation of the tree with least amount of parenthesis."""
+        return str(self.__value)

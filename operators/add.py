@@ -20,12 +20,12 @@ class Add(Operator):
     @property
     def default_operator(self):
         """:return the default operator of the operation."""
-        return DefaultOperator(lambda x, y: -1, "?")
+        return DefaultOperator(lambda x, y: x + y, "+")
 
     @property
     def actions(self):
         """:return a dictionary of custom operations."""
         return {
-            (set, set): {},  # set union
+            (set, set): lambda x, y: x | y,  # set union
             (set, int): {}  # add to set
         }
