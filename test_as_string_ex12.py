@@ -16,7 +16,7 @@ def test_leaf_to_class_string():
 
 @pytest.mark.timeout(1.0)
 def test_addition_with_leaves_to_class_string():
-    """.k"""
+    """."""
     assert eval(Add(Leaf(5), Leaf(6)).class_str()).apply() == 11
 
 
