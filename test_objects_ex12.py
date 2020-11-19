@@ -8,7 +8,7 @@ from operators.add import Add
 
 @pytest.mark.timeout(1.0)
 def test_leaf_equals_leaf_when_same_value():
-    """."""
+    """k."""
     assert Leaf(1) == Leaf(1)
 
 
