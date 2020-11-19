@@ -14,7 +14,7 @@ class Div(Operator):
 
     @property
     def priority(self):
-        """priority of the operation."""
+        """pririty of the operation."""
         return -1
 
     @property
